@@ -61,11 +61,11 @@ protected:
         painter->drawEllipse(localPin1, 4, 4);
     }
 
-    // ANTI-OVERLAP ENVELOPE: Keeps text right-side up regardless of rotation
+    
     void applyAntiOverlapTextTransform(QPainter *painter, double defaultX, double defaultY) const {
         painter->save();
         painter->translate(defaultX, defaultY);
-        painter->rotate(-this->rotation()); // Counter-rotates text to keep it parallel to the screen view
+        painter->rotate(-this->rotation()); 
     }
 };
 
@@ -95,7 +95,7 @@ public:
         painter->setPen(QPen(Qt::black, 2.5));
         painter->drawLine(0, -30, 0, -10); painter->drawLine(0, 20, 0, 30);
 
-        // Render dynamic anti-overlap text labels
+        
         painter->setFont(QFont("Arial", 8, QFont::Bold));
         painter->setPen(QPen(Qt::black, 1));
 
@@ -137,7 +137,7 @@ public:
         path.lineTo(15, 12);   path.lineTo(20, 0);    path.lineTo(30, 0);
         painter->drawPath(path);
 
-        // Anti-overlap labels drawn as an isolated telemetry grid below the symbol
+        
         painter->setPen(QPen(Qt::black, 1));
 
         applyAntiOverlapTextTransform(painter, -20, -18);
@@ -156,7 +156,7 @@ public:
     }
 };
 
-// ==================== COLOURFUL GROUND ====================
+//  COLOURFUL GROUND
 class Ground : public Component {
     Q_OBJECT
 public:
@@ -178,12 +178,12 @@ public:
     }
 };
 
-// ==================== DYNAMIC GLOWING LED ====================
+// DYNAMIC GLOWING LED 
 class LED : public Component {
     Q_OBJECT
 public:
     LED(QString n) : Component(TYPE_LED, n) {
-        // FIX: Boost default internal resistance to 400 ohms to handle 12V natively without blowing out
+    
         this->resistance = 400.0;
         this->localPin0 = QPointF(-30, 0);
         this->localPin1 = QPointF(30, 0);
