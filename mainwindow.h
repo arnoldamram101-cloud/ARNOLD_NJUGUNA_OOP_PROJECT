@@ -5,7 +5,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QPushButton>
-#include <QTextBrowser> // Added for the rich telemetry panel
+#include <QTextBrowser> 
 #include <QStatusBar>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
